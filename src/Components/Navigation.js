@@ -1,15 +1,14 @@
 import React from 'react'
+import '../index.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import NavDropdown from 'react-bootstrap/NavDropdown';
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { searchAction } from '../redux/actions/searchAction';
 
 const Navigation = () => {
   let [keyword, setKeyword] = useState('');
@@ -17,8 +16,6 @@ const Navigation = () => {
   const dispatch = useDispatch();
   const searchMovieName = (event) => {
     event.preventDefault();
-    // setAuthenticate(true);
-    // dispatch(authenticateAction.login(id, password));
     navigate('/');
   }
   return (
