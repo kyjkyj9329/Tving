@@ -1,0 +1,185 @@
+.wrapper {
+  background-color: #000;
+  width: 100vw;
+  height: 100%;
+}
+.nav-item {
+  color: #fff;
+  text-decoration: none;
+  margin-right: 20px;
+  cursor: pointer;
+}
+.nav-item:hover {
+  color: #f00;
+}
+.banner {
+  height: 600px;
+  color: #fff;
+  display: flex;
+  align-items: center;
+}
+.banner::before {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 600px;
+  content: '';
+  background: linear-gradient(to right, black, transparent);
+}
+.banner-info {
+  width: 40%;
+  margin-left: 30px;
+  z-index: 1;
+}
+.slide {
+  color: #fff;
+  margin: 20px;
+}
+.loader {
+  margin-left: 50%;
+}
+.card {
+  width: 90%;
+  height: 200px!important;
+  background-position: center;
+  background-size: cover;
+  border: none !important;
+  overflow: hidden;
+}
+.card:hover {
+  cursor: pointer;
+  box-shadow: 3px 3px 15px #111;
+}
+.react-multi-carousel-list {
+  overflow: none !important;
+}
+.react-multi-carousel-item {
+  transition: .3s;
+}
+.react-multi-carousel-item:hover {
+  /* transform: scale(1.3); */
+  z-index: 3;
+}
+.card h1, span {
+  font-size: 20px;
+  color: #fff;
+}
+.overlay {
+  opacity: 0;
+}
+.card:hover .overlay {
+  opacity: 1;
+  padding: 10px;
+  background: rgba(43, 41, 41, 0.9);
+  transition: .2s;
+  cursor: pointer;
+}
+.overlay > div:nth-child(1) {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+
+}
+.badge {
+  /* display: flex !important; */
+  font-weight: 100;
+}
+
+.MovieDetail {
+  width: 100%;
+  height: 100vh;
+  padding: 50px;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  background-position: top;
+  /* background-size: cover; */
+  background-repeat: no-repeat;
+}
+.MovieDetail::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  content: '';
+  background: linear-gradient(to top, black, black, transparent);
+}
+.MovieDetail > div:first-child {
+  flex: 1;
+}
+.MovieDetail .content {
+  flex: 1;
+  padding: 100px 50px;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  z-index: 2;
+}
+.MovieDetail .content > div:first-child {
+  display: flex;
+  justify-content: space-between;
+}
+.MovieDetail .content .title {
+  font-size: 48px;
+  font-weight: 800;
+}
+.MovieDetail .content .info {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.MovieDetail .content .info > div:last-child {
+  display: flex;
+  gap: 5px;
+}
+.MovieDetail .content .release_date {
+  color: #aaa;
+  font-weight: 400;
+}
+.MovieDetail .content .vote_average {
+  font-size: 24px;
+  font-weight: 600;
+}
+.MovieDetail .content > div:last-child {
+  
+}
+.MovieDetail .content .overview {
+  margin-top: 50px;
+}
+
+/* Modal CSS */
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  overflow-y: scroll;
+  z-index: 9998;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.modal-wrapper {
+  width: min(90%,900px);
+  margin: 100px auto;
+  padding-bottom: 50px;
+  background-color: black;
+  color: #fff;
+  z-index: 9999;
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.contentContainer {
+  margin: 0 30px;
+}
+.details {
+  width: 100%;
+  margin: 50px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+.modal-img {
+  width: 90%;
+  height: 500px;
+}
