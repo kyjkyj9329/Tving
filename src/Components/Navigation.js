@@ -17,8 +17,8 @@ const Navigation = () => {
   const dispatch = useDispatch();
   const searchMovieName = (event) => {
     event.preventDefault();
-    setAuthenticate(true);
-    dispatch(authenticateAction.login(id, password));
+    // setAuthenticate(true);
+    // dispatch(authenticateAction.login(id, password));
     navigate('/');
   }
   return (
