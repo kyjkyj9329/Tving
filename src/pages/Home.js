@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
 import { movieAction } from "../redux/actions/movieAction";
 import { useDispatch, useSelector } from "react-redux";
-import Banner from "../Components/Banner";
-import MovieSlide from "../Components/MovieSlide";
+import Banner from "../components/Banner";
+import MovieSlide from "../components/MovieSlide";
 import { useState, CSSProperties } from "react";
 import { ClipLoader } from "react-spinners";
 
@@ -32,11 +32,11 @@ const Home = () => {
   return (
     <div className="slide">
       {popularMovies.results && <Banner movie={popularMovies.results[0]} />}
-      <h1>Popular Movie</h1>
+      <h1>실시간 인기 프로그램</h1>
       <MovieSlide movies={popularMovies} />
-      <h1>Top rated Movie</h1>
+      <h1>티빙 TOP 20 프로그램</h1>
       <MovieSlide movies={topRatedMovies} />
-      <h1>Upcoming Movie</h1>
+      <h1>최신 방영 영화</h1>
       <MovieSlide movies={upComingMovies} />
     </div>
   );
