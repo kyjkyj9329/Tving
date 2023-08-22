@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useReducer } from 'react'
 import { Badge } from 'react-bootstrap'
 import { useSelector } from 'react-redux'
 import { useNavigate } from 'react-router'
@@ -17,31 +17,29 @@ const customStyles = {
   },
 };
 
+const initialState = {
+  movieImages: {},
+}
+
+function movieImageReducer(state = initialState, action) {
+  let {type, payload} = action;
+  switch(type) {
+    case 'GET_MOVIE_IMAGES_REQUEST':
+      return {...state}
+    case 'GET_MOVIE_IMAGES_SUCCESS' :
+      return { 
+        ...state, 
+        movieImages: payload.movieImages,
+      };
+    case  'GET_MOVIE_IMAGES_FAILURE' : 
+      return {...state}
+    default:
+      return {...state}
+  }
+}
 
 const MovieCard = ({ item }) => {
   const navigate = useNavigate();
-  
-  // const key = "b63dfb72034b5ca111956fae9f1a2a66";
-
-  // const fetchMovie = async() => {
-  //   const url = "https://api.themoviedb.org/3/trending/all/week?api_key=" + key + "&language=ko-KR"
-  //   const response = await axios.get(url);
-  //   console.log("test2", response)
-  //   // for(let i=0; i<10; i++) {
-  //   //   if (response.data.results[i].title == undefined) {
-  //   //     console.log("test1", response.data.results[i].name)
-  //   //   }
-  //   //   else {
-  //   //     console.log("test2", response.data.results[i].title)
-  //   //   }
-  //   // }
-  // }
-  // fetchMovie()
-  // console.log("id", item.id)
-  // const API_KEY = process.env.REACT_APP_API_KEY;
-  
-  // getMovieImage(item.id);
-  // console.log('MovieCard-movieImages', movieImages)
 
   const {genreList} = useSelector((state) => state.movie)
   // console.log("item", item)
@@ -50,19 +48,48 @@ const MovieCard = ({ item }) => {
   const onClickCard = () => {
     navigate(`/movies/${item.id}`, { state: { item: item, genreList: genreList } })
   }
+
+  const [state, dispatch] = useReducer(movieImageReducer, initialState);
+  console.log('state', state)
   const API_KEY = process.env.REACT_APP_API_KEY;
-  const getMovieImage = async() => {
-    const url = `https://api.themoviedb.org/3/movie/${item.id}/images?api_key=${API_KEY}`;
-    const movieImages = await axios.get(url);
-    console.log('MovieSlide-movieImages', movieImages)
+  const getMovieImage = () => {
+    return async (dispatch) => {
+      try {
+        dispatch({
+          type: 'GET_MOVIE_IMAGES_REQUEST'
+        })
+        const movieImagesApi = `https://api.themoviedb.org/3/movie/${item.id}/images?api_key=${API_KEY}`;
+
+        let movieImages = await Promise.all(
+          movieImagesApi
+        );
+        console.log('hi')
+        console.log('MovieSlide-movieImages', movieImages)
+        dispatch({
+          type: 'GET_MOVIE_IMAGES_SUCCESS',
+          payload: {
+            movieImages: movieImages.data,
+          }
+        })
+      } catch (error) {
+        dispatch({type: 'GET_MOVIE_IMAGES_FAILURE'})
+      }
+    }
   }
   getMovieImage()
+
+  // console.log('MovieSlide-movieImages', movieImages)
+  // console.log('getMovieImage', getMovieImage());
+
   return (
     <div 
       className='card'
       // style={{
       //   backgroundImage: "url(" + `https://www.themoviedb.org/t/p/w355_and_h200_multi_faces${movieImages.posters[0].file_path}` + ")" ,
       //   }}
+      style={{
+        backgroundImage: "url(" + `https://www.themoviedb.org/t/p/w355_and_h200_multi_faces${item.poster_path}` + ")" ,
+      }}
       onClick={onClickCard}
       >
       <div className='overlay'>

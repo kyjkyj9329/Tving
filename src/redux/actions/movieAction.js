@@ -17,7 +17,7 @@ function getMovies() {
       let [popularMovies, topRatedMovies, upComingMovies, genreList] = await Promise.all([popularMovieApi, topRatedApi, upComingApi, genreApi]);
         // console.log('movieAction-genreList', genreList)
         // console.log('movieAction-movieImages', movieImages)
-        // console.log('movieAction-popularMovieApi', popularMovieApi)
+        console.log('movieAction-popularMovieApi', popularMovies)
 
       dispatch({
         type: 'GET_MOVIES_SUCCESS',

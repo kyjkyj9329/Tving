@@ -41,7 +41,7 @@ const MovieSlide = ({ movies, onClickCard }) => {
   console.log("MovieSlide-movies", movies);
   // console.log("MovieSlide-movieImages", movieImages);
   return (
-    <div>
+    <div className='MovieSlide'>
       <Carousel responsive={responsive}>
         {movies.results.map((item) => (
           <MovieCard key={item.id} item={item} onClickCard={onClickCard} />

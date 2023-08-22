@@ -1,12 +1,17 @@
 .slide {
   color: #fff;
-  margin: 0 20px;
 }
 .loader {
   margin-left: 50%;
 }
 h1 {
   padding: 20px 0;
+}
+.MovieSlide {
+  margin: 0 20px;
+}
+.react-multi-carousel-list {
+  overflow: none !important;
 }
 .card {
   width: 90%;
@@ -19,9 +24,6 @@ h1 {
 .card:hover {
   cursor: pointer;
   box-shadow: 3px 3px 15px #111;
-}
-.react-multi-carousel-list {
-  overflow: none !important;
 }
 .react-multi-carousel-item {
   transition: .3s;
