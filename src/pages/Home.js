@@ -11,7 +11,8 @@ const Home = () => {
   const { popularMovies, topRatedMovies, upComingMovies, loading } = useSelector(
     (state) => state.movie
   );
-  console.log("home", popularMovies);
+  // console.log("home-popularMovies", popularMovies);
+  // console.log("home-movieImages", movieImages);
 
   useEffect(() => {
     dispatch(movieAction.getMovies());
@@ -32,11 +33,11 @@ const Home = () => {
   return (
     <div className="slide">
       {popularMovies.results && <Banner movie={popularMovies.results[0]} />}
-      <h1>실시간 인기 프로그램</h1>
+      <h1>POPULAR</h1>
       <MovieSlide movies={popularMovies} />
-      <h1>티빙 TOP 20 프로그램</h1>
+      <h1>TOP RATED</h1>
       <MovieSlide movies={topRatedMovies} />
-      <h1>최신 방영 영화</h1>
+      <h1>UPCOMING</h1>
       <MovieSlide movies={upComingMovies} />
     </div>
   );

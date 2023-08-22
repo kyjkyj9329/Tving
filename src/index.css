@@ -1,5 +1,27 @@
+/* Font Family */
+/* 한국어 */
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+/* font-family: 'Noto Sans KR', sans-serif; */
+/* 영어 */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap');
+/* font-family: 'Montserrat', sans-serif; */
 
 body {
   font-family: 'Noto Sans KR', sans-serif !important;
+}
+
+:root {
+  /* === Font Family === */
+  --primary-kr: 'Noto Sans KR', sans-serif;
+  --primary-en: 'Montserrat', sans-serif;
+
+  /* === Color === */
+  --color-red: #F71339;
+  --color-blue: #01D0E3;
+  --color-purple: #8B01F7;
+  --color-yellow: #F4DE49;
+
+  /* === Background Color === */
+  --bg-color-white: #F7F7F7;
+  --bg-color-black: #000000;
 }

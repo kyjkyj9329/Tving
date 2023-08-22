@@ -1,0 +1,60 @@
+.slide {
+  color: #fff;
+  margin: 0 20px;
+}
+.loader {
+  margin-left: 50%;
+}
+h1 {
+  padding: 20px 0;
+}
+.card {
+  width: 90%;
+  height: 250px!important;
+  background-position: center;
+  background-size: cover;
+  border: none !important;
+  overflow: hidden;
+}
+.card:hover {
+  cursor: pointer;
+  box-shadow: 3px 3px 15px #111;
+}
+.react-multi-carousel-list {
+  overflow: none !important;
+}
+.react-multi-carousel-item {
+  transition: .3s;
+  /* min-width: 400px; */
+}
+.slide:last-child {
+  padding-bottom: 25px;
+}
+.react-multi-carousel-item:hover {
+  /* transform: scale(1.3); */
+  z-index: 3;
+}
+.card h1, span {
+  font-size: 20px;
+  color: #fff;
+}
+.overlay {
+  opacity: 0;
+}
+.card:hover .overlay {
+  opacity: 1;
+  padding: 10px;
+  background: rgba(43, 41, 41, 0.9);
+  transition: .2s;
+  cursor: pointer;
+}
+.overlay > div:nth-child(1) {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+
+}
+.badge {
+  /* display: flex !important; */
+  font-weight: 100;
+}
