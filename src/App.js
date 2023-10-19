@@ -3,7 +3,7 @@ import { Route, Routes } from 'react-router-dom';
 import Home from './pages/Home';
 import MovieDetail from './pages/MovieDetail';
 import Movies from './pages/Movies';
-import Navigation from './components/Navigation';
+import Navigation from './components/Navbar';
 
 function App() {
   return (
